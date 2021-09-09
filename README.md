@@ -5,35 +5,35 @@
 <p>1. Clonez ou téléchargez le repository GitHub dans le dossier voulu :</p>
 
    ```
-   git clone https://github.com/benjaminroche4/P6_Snowtrick.git
+   git clone https://github.com/benjaminroche4/P7_Bilemo_V2.git
    ```
-<p>2. Passez en mode "dev" dans le fichier ".env" :</p>
+
+<p>2. Configurez la connexion à la base de données dans le fichier ".env" à la racine du projet :</p>
 
    ```
-   APP_ENV=dev
+   DATABASE_URL="mysql://root:root@127.0.0.1:8889/db_name?serverVersion=13&charset=utf8"
    ```
-<p>3. Configurez la connexion à la base de données dans le même fichier :</p>
 
-   ```
-   DATABASE_URL="mysql://root:root@127.0.0.1:8889/bilemonew?serverVersion=13&charset=utf8"
-   ```
-<p>4. Téléchargez les dépendances nécessaires grace à composer :</p>
+<p>3. Téléchargez les dépendances nécessaires grace à composer :</p>
 
    ```
    composer install
    ```
-<p>5. Installez la base de données à l'aide des commandes suivantes dans votre terminal :</p>
+
+<p>4. Installez la base de données à l'aide des commandes suivantes dans votre terminal :</p>
 
    ```
    php bin/console doctrine:database:create
-   php bin/console doctrine:schema:update --force
+   php bin/console doctrine:schema:update
    ```
-<p>6. Lancez le serveur à l'aide du terminal avec la commande suivante :</p>
+
+<p>5. Lancez le serveur à l'aide du terminal avec la commande suivante :</p>
 
    ```
    symfony server:start
    ```
-<p>7. Le projet est maintenant installé. Vous pouvez consulter la documentation de l'API à cette adresse :</p>
+
+<p>6. Le projet est maintenant installé. Vous pouvez consulter la documentation de l'API à cette adresse :</p>
 
    ```
    http://127.0.0.1:8000/api/doc

@@ -1,0 +1,28 @@
+# config/packages/nelmio_api_doc.yaml
+nelmio_api_doc:
+  areas:
+    path_patterns: # an array of regexps
+      - ^/api(?!/doc$)
+
+
+  documentation:
+    servers:
+      - url: http://api.example.com/unsafe
+        description: API over HTTP
+      - url: https://api.example.com/secured
+        description: API over HTTPS
+
+    info:
+      title: Bilemo
+      description: Mobile App
+      version: 1.0.0
+
+    components:
+      securitySchemes:
+        Bearer:
+          type: http
+          scheme: bearer
+          bearerFormat: JWT
+
+    security:
+      - Bearer: []

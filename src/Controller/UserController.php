@@ -34,7 +34,11 @@ class UserController extends AbstractController
      * )
      * @OA\Response(
      *     response=404,
-     *     description="User not found.",
+     *     description="User not found",
+     * )
+     * @OA\Response(
+     *     response=401,
+     *     description="Unauthorized request"
      * )
      * @OA\Tag(name="User")
      */
@@ -57,7 +61,11 @@ class UserController extends AbstractController
      * @Route("/api/user/delete/{id}", name="user_delete", methods={"delete"})
      * @OA\Response(
      *     response=204,
-     *     description="The user has been delete"
+     *     description="Delete user (return a empty body)"
+     * )
+     * @OA\Response(
+     *     response=401,
+     *     description="Unauthorized request"
      * )
      * @OA\Tag(name="User")
      */
@@ -95,20 +103,25 @@ class UserController extends AbstractController
      *                 property="email",
      *                 description="User's email address",
      *                 type="string"
+     *             ),
+     *             @OA\Property(
+     *                 property="customerId",
+     *                 description="Customer affiliate",
+     *                 type="number"
      *             )
      *         )
      *     )
      * )
      * @OA\Response(
-     *     response=JsonResponse::HTTP_CREATED,
+     *     response=201,
      *     description="Create a user and returns it"
      * )
      * @OA\Response(
-     *     response=JsonResponse::HTTP_BAD_REQUEST,
+     *     response=400,
      *     description="Bad Json syntax or incorrect data"
      * )
      * @OA\Response(
-     *     response=JsonResponse::HTTP_UNAUTHORIZED,
+     *     response=401,
      *     description="Unauthorized request"
      * )
      * @OA\Tag(name="User")

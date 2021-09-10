@@ -37,6 +37,10 @@ class CustomerController extends AbstractController
      *      @OA\Items(ref=@Model(type=Customer::class, groups={"get:list"}))
      *      )
      * )
+     * @OA\Response(
+     *     response=401,
+     *     description="Unauthorized request"
+     * )
      * @OA\Tag(name="Customer")
      */
     public function list(CustomerRepository $customerRepository, CacheInterface $cache): Response
@@ -65,6 +69,10 @@ class CustomerController extends AbstractController
      * @OA\Response(
      *     response=404,
      *     description="Customer not found.",
+     * )
+     * @OA\Response(
+     *     response=401,
+     *     description="Unauthorized request"
      * )
      * @OA\Tag(name="Customer")
      */
@@ -106,8 +114,8 @@ class CustomerController extends AbstractController
      *     @OA\Schema(type="int", default = 5)
      * )
      * @OA\Response(
-     *     response=404,
-     *     description="Customer not found.",
+     *     response=401,
+     *     description="Unauthorized request"
      * )
      * @OA\Tag(name="Customer")
      */
@@ -159,15 +167,15 @@ class CustomerController extends AbstractController
      *     )
      * )
      * @OA\Response(
-     *     response=JsonResponse::HTTP_CREATED,
-     *     description="Create a customer and returns it"
+     *     response=201,
+     *     description="Create a user and returns it"
      * )
      * @OA\Response(
-     *     response=JsonResponse::HTTP_BAD_REQUEST,
+     *     response=400,
      *     description="Bad Json syntax or incorrect data"
      * )
      * @OA\Response(
-     *     response=JsonResponse::HTTP_UNAUTHORIZED,
+     *     response=401,
      *     description="Unauthorized request"
      * )
      * @OA\Tag(name="Customer")

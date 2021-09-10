@@ -42,6 +42,10 @@ class ProductController extends AbstractController
      *     description="Number of items by page",
      *     @OA\Schema(type="int", default = 5)
      * )
+     * @OA\Response(
+     *     response=401,
+     *     description="Unauthorized request"
+     * )
      * @OA\Tag(name="Product")
      */
     public function list(ProductRepository $productRepository, PaginatorInterface $paginator, Request $request, CacheInterface $cache): Response
@@ -76,6 +80,10 @@ class ProductController extends AbstractController
      * @OA\Response(
      *     response=404,
      *     description="Product not found.",
+     * )
+     * @OA\Response(
+     *     response=401,
+     *     description="Unauthorized request"
      * )
      * @OA\Tag(name="Product")
      */

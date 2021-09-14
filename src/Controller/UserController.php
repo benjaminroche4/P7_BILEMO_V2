@@ -104,11 +104,6 @@ class UserController extends AbstractController
      *                 description="User's email address",
      *                 type="string"
      *             ),
-     *             @OA\Property(
-     *                 property="customerId",
-     *                 description="Customer affiliate",
-     *                 type="number"
-     *             )
      *         )
      *     )
      * )
@@ -133,7 +128,7 @@ class UserController extends AbstractController
         {
             $user = $serializer->deserialize($request->getContent(), User::class, 'json');
             $user->setCreatedAt(new \DateTimeImmutable());
-            $user->setCustomerId($customerRepository->find('11'));
+            $user->setCustomerId($this->getUser());
 
             $errors = $validator->validate($user);
 

@@ -22,9 +22,18 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Nelmio\ApiDocBundle\Annotation\Security;
 use OpenApi\Annotations as OA;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class CustomerController extends AbstractController
 {
+    protected $hasher;
+
+    public function __construct(UserPasswordHasherInterface $hasher)
+    {
+        $this->hasher = $hasher;
+    }
+
+
     /**
      * Récupère la liste des clients
      *
@@ -181,18 +190,15 @@ class CustomerController extends AbstractController
      * @OA\Tag(name="Customer")
      */
     public function add(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager,
-                        ValidatorInterface $validator, UserPasswordEncoderInterface $encoder)
+                        ValidatorInterface $validator)
     {
-        $customer = new Customer();
-        $plainPassword = "password";
-        $encoded = $encoder->encodePassword($customer, $plainPassword);
 
         try
         {
             $customer = $serializer->deserialize($request->getContent(), Customer::class, 'json');
 
             $customer->setCreatedAt(new \DateTimeImmutable());
-            $customer->setPassword($encoded);
+            $customer->setPassword($this->hasher->hashPassword($customer, $customer->getPassword()));
 
             $errors = $validator->validate($customer);
 

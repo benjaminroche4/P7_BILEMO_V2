@@ -90,7 +90,7 @@ class UserController extends AbstractController
      *         @OA\Schema(
      *             type="object",
      *             @OA\Property(
-     *                 property="firstname",
+     *                 property="fisrtname",
      *                 description="User's first name",
      *                 type="string"
      *             ),

@@ -29,7 +29,7 @@ class UserController extends AbstractController
      *     description="Returns the informations about the user ID",
      *     @OA\JsonContent(
      *      type="array",
-     *      @OA\Items(ref=@Model(type=User::class, groups={"get:userList"}))
+     *      @OA\Items(ref=@Model(type=User::class, groups={"get:infos"}))
      *      )
      * )
      * @OA\Response(

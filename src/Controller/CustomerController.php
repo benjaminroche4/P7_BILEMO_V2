@@ -102,13 +102,35 @@ class CustomerController extends AbstractController
      * Permet de savoir la liste des utilisateurs lié à un client
      *
      * @Route("/api/customer/{id}/list", name="customer_user", methods={"GET"})
-     * @OA\Response(
-     *     response=200,
-     *     description="Returns the informations about the users affiliates to the customer ",
-     *     @OA\JsonContent(
-     *      type="array",
-     *      @OA\Items(ref=@Model(type=Customer::class, groups={"get:detail"}))
-     *      )
+     * @OA\RequestBody(
+     *     description="The new customer to create",
+     *     required=true,
+     *     @OA\MediaType(
+     *         mediaType="application/Json",
+     *         @OA\Schema(
+     *             type="object",
+     *             @OA\Property(
+     *                 property="id",
+     *                 description="0",
+     *                 type="integer"
+     *             ),
+     *             @OA\Property(
+     *                 property="firstname",
+     *                 description="string",
+     *                 type="string"
+     *             ),
+     *             @OA\Property(
+     *                 property="lastname",
+     *                 description="string",
+     *                 type="string"
+     *             ),
+     *             @OA\Property(
+     *                 property="email",
+     *                 description="string",
+     *                 type="string"
+     *             ),
+     *         )
+     *     )
      * )
      * @OA\Parameter(
      *     name="page",

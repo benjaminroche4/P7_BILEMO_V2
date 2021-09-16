@@ -1,5 +1,6 @@
 <h1>Projet n°7 - Bilemo</h1>
 <p>Création d'une API pour le client Bilemo.</p>
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/752865c18f1a4540a88211815b33d0dc)](https://www.codacy.com/gh/benjaminroche4/P7_BILEMO_V2/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=benjaminroche4/P7_BILEMO_V2&amp;utm_campaign=Badge_Grade)
 
 <h2>Instalation du projet</h2>
 <p>1. Clonez ou téléchargez le repository GitHub dans le dossier voulu :</p>

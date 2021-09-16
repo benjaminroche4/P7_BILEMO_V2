@@ -1,3 +1,6 @@
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d0d7cc075de84fd1b847b2787a53ae55)](https://app.codacy.com/gh/benjaminroche4/P7_BILEMO_V2?utm_source=github.com&utm_medium=referral&utm_content=benjaminroche4/P7_BILEMO_V2&utm_campaign=Badge_Grade_Settings)
+
 <h1>Projet n°7 - Bilemo</h1>
 <p>Création d'une API pour le client Bilemo.</p>
 
